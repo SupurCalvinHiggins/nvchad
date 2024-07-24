@@ -1,7 +1,7 @@
 local plugins = {
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft ={"python"},
+    ft ={"python", "c"},
     opts = function ()
       return require("custom.configs.null-ls")
     end
@@ -12,6 +12,7 @@ local plugins = {
       ensure_installed = {
         "rust-analyzer",
         "clangd",
+        "clang-format",
         "codelldb",
         "pyright",
         "mypy",

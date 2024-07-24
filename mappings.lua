@@ -1,6 +1,6 @@
- local M = {}
+local M = {}
 
--- Disable default keymaps.
+-- Disable arrow keys.
 M.hardmode = {
   n = {
     ["<Up>"] = {"<nop>", "disabled arrows"},
@@ -22,7 +22,7 @@ M.hardmode = {
   },
 }
 
--- Enable custom keymaps.
+-- Enable custom escape.
 M.custom = {
   i = {
     ["jj"] = {"<ESC>", "escape insert mode", opts = {nowait = true}},
@@ -32,7 +32,7 @@ M.custom = {
   },
 }
 
--- Debugging keymaps.
+-- Enable debugging keymaps.
 M.dap = {
   n = {
     ["<Up>"] = {
