@@ -1,11 +1,23 @@
 local plugins = {
- {
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    ft ={"python"},
+    opts = function ()
+      return require("custom.configs.null-ls")
+    end
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
         "rust-analyzer",
         "clangd",
         "codelldb",
+        "pyright",
+        "mypy",
+        "ruff",
+        "black",
+        "debugpy",
       },
     },
   },
@@ -34,6 +46,17 @@ local plugins = {
     end,
   },
   {
+    "mfussenegger/nvim-dap-python",
+    ft = "python",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    config = function(_, _)
+      local path = "~/.local/share/nvim/mason/packages/debugpy/vnev/bin/python"
+      require("dap-python").setup(path)
+    end,
+  },
+  {
     "rust-lang/rust.vim",
     ft = "rust",
     init = function ()
@@ -44,7 +67,7 @@ local plugins = {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
     config = function(_, opts)
-      require("nvim-dap-virtual-text").setup()
+      require("nvim-dap-virtual-text").setup(opts)
     end
   },
 }

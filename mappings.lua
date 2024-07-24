@@ -25,13 +25,9 @@ M.hardmode = {
 -- Enable custom keymaps.
 M.custom = {
   i = {
-    ["jk"] = {"<ESC>", "escape insert mode", opts = {nowait = true}},
-    ["kj"] = {"<ESC>", "escape insert mode", opts = {nowait = true}},
     ["jj"] = {"<ESC>", "escape insert mode", opts = {nowait = true}},
   },
   v = {
-    ["jk"] = {"<ESC>", "escape insert mode", opts = {nowait = true}},
-    ["kj"] = {"<ESC>", "escape insert mode", opts = {nowait = true}},
     ["jj"] = {"<ESC>", "escape insert mode", opts = {nowait = true}},
   },
 }
