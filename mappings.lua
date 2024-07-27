@@ -3,32 +3,32 @@ local M = {}
 -- Disable arrow keys.
 M.hardmode = {
   n = {
-    ["<Up>"] = {"<nop>", "disabled arrows"},
-    ["<Down>"] = {"<nop>", "disabled arrows"},
-    ["<Left>"] = {"<nop>", "disabled arrows"},
-    ["<Right>"] = {"<nop>", "disabled arrows"},
+    ["<Up>"] = { "<nop>", "disabled arrows" },
+    ["<Down>"] = { "<nop>", "disabled arrows" },
+    ["<Left>"] = { "<nop>", "disabled arrows" },
+    ["<Right>"] = { "<nop>", "disabled arrows" },
   },
   i = {
-    ["<Up>"] = {"<nop>", "disabled arrows"},
-    ["<Down>"] = {"<nop>", "disabled arrows"},
-    ["<Left>"] = {"<nop>", "disabled arrows"},
-    ["<Right>"] = {"<nop>", "disabled arrows"},
+    ["<Up>"] = { "<nop>", "disabled arrows" },
+    ["<Down>"] = { "<nop>", "disabled arrows" },
+    ["<Left>"] = { "<nop>", "disabled arrows" },
+    ["<Right>"] = { "<nop>", "disabled arrows" },
   },
   v = {
-    ["<Up>"] = {"<nop>", "disabled arrows"},
-    ["<Down>"] = {"<nop>", "disabled arrows"},
-    ["<Left>"] = {"<nop>", "disabled arrows"},
-    ["<Right>"] = {"<nop>", "disabled arrows"},
+    ["<Up>"] = { "<nop>", "disabled arrows" },
+    ["<Down>"] = { "<nop>", "disabled arrows" },
+    ["<Left>"] = { "<nop>", "disabled arrows" },
+    ["<Right>"] = { "<nop>", "disabled arrows" },
   },
 }
 
 -- Enable custom escape.
 M.custom = {
   i = {
-    ["jj"] = {"<ESC>", "escape insert mode", opts = {nowait = true}},
+    ["jj"] = { "<ESC>", "escape insert mode", opts = { nowait = true } },
   },
   v = {
-    ["jj"] = {"<ESC>", "escape insert mode", opts = {nowait = true}},
+    ["jj"] = { "<ESC>", "escape insert mode", opts = { nowait = true } },
   },
 }
 
@@ -36,17 +36,17 @@ M.custom = {
 M.dap = {
   n = {
     ["<Up>"] = {
-      function ()
+      function()
         require("dap").step_out()
       end
     },
     ["<Down>"] = {
-      function ()
+      function()
         require("dap").step_into()
       end
     },
     ["<Right>"] = {
-      function ()
+      function()
         require("dap").step_over()
       end
     },
@@ -55,7 +55,7 @@ M.dap = {
       "Toggle breakpoint",
     },
     ["<leader>du"] = {
-      function ()
+      function()
         local widgets = require("dap.ui.widgets")
         local sidebar = widgets.sidebar(widgets.scopes)
         sidebar.open()
