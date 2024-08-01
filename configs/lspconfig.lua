@@ -32,6 +32,7 @@ lspconfig.pyright.setup({
   capabilities = capabilities,
 })
 
+-- Configure Python LSP (formatting).
 lspconfig.ruff_lsp.setup({
   on_attach = on_attach,
   capabilities = capabilities,
@@ -39,6 +40,12 @@ lspconfig.ruff_lsp.setup({
 
 -- Configure C/CPP LSP.
 lspconfig.clangd.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+-- Configure Rust LSP.
+lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })

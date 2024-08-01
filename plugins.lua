@@ -20,20 +20,32 @@ local plugins = {
     end
   },
   {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function()
-      return require("custom.configs.rust-tools")
-    end,
-    config = function(_, opts)
-      require('rust-tools').setup(opts)
-    end
-  },
-  {
     "mfussenegger/nvim-dap",
-    init = function()
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
+    },
+    config = function()
+      require("dapui").setup()
+
       require("core.utils").load_mappings("dap")
+      require("custom.configs.dap")
+
+      dap = require("dap");
+      dapui = require("dapui");
+
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated.dapui_config = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited.dapui_config = function()
+        dapui.close()
+      end
     end,
   },
   {
@@ -45,13 +57,6 @@ local plugins = {
     config = function(_, _)
       local path = "~/.local/share/nvim/mason/packages/debugpy/vnev/bin/python"
       require("dap-python").setup(path)
-    end,
-  },
-  {
-    "rust-lang/rust.vim",
-    ft = "rust",
-    init = function()
-      vim.g.rustfmt_autosave = 1
     end,
   },
   {
